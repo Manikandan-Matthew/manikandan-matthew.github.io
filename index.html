@@ -1,15 +1,439 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Manikandan Thiyagarajah</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manikandan Thiyagarajah | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8f7f3;
+            color: #172033;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 8%;
+        }
+
+        .hero-content {
+            width: 55%;
+            z-index: 2;
+        }
+
+        .quote {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: #8a6d1d;
+            margin-bottom: 25px;
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 6rem);
+            line-height: 1;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: #b18a2b;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #5d6675;
+            margin-bottom: 35px;
+        }
+
+        .about-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #172033;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .about-button:hover {
+            background: #b18a2b;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 45%;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            max-height: 90vh;
+            max-width: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+        }
+
+        .social-links {
+            position: absolute;
+            bottom: 30px;
+            left: 8%;
+            display: flex;
+            gap: 20px;
+            z-index: 5;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #172033;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #b18a2b;
+        }
+
+        .section {
+            padding: 100px 8%;
+            min-height: 100vh;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .about-image {
+            width: 35%;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 20px;
+        }
+
+        .about-text {
+            width: 65%;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #596273;
+        }
+
+        .navigation-buttons {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .navigation-buttons a {
+            padding: 12px 20px;
+            border: 1px solid #b18a2b;
+            border-radius: 25px;
+            color: #172033;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .navigation-buttons a:hover {
+            background: #b18a2b;
+            color: white;
+        }
+
+        .content-section {
+            padding: 100px 8%;
+            min-height: 70vh;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .content-section p {
+            max-width: 800px;
+            line-height: 1.8;
+            color: #596273;
+        }
+
+        .floating-buttons {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .floating-buttons a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #172033;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .floating-buttons a:hover {
+            background: #b18a2b;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 800px) {
+
+            .hero {
+                flex-direction: column;
+                padding-top: 80px;
+            }
+
+            .hero-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 50vh;
+                margin-top: 30px;
+            }
+
+            .social-links {
+                position: static;
+                margin-top: 20px;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-image,
+            .about-text {
+                width: 100%;
+            }
+
+            .floating-buttons {
+                right: 10px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Welcome to My Portfolio</h1>
+    <!-- HERO SECTION -->
 
-    <p>Manikandan Thiyagarajah (Matthew)</p>
+    <section class="hero" id="home">
 
-    <p>The world has many people, many stories. This is my story.</p>
+        <div class="hero-content">
+
+            <div class="quote">
+                “The world has many people, many stories.
+                This is my story.”
+            </div>
+
+            <h1>
+                Manikandan<br>
+                <span>Thiyagarajah</span>
+            </h1>
+
+            <p class="subtitle">
+                Matthew · My Journey · My Work · My Story
+            </p>
+
+            <a href="#about" class="about-button">
+                Know More About Me →
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="images/hero.jpg" alt="Manikandan Thiyagarajah">
+        </div>
+
+        <div class="social-links">
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">TalentDesk</a>
+            <a href="#" target="_blank">GitHub</a>
+            <a href="#" target="_blank">WhatsApp</a>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="section" id="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-container">
+
+            <div class="about-image">
+                <img src="images/dp_image.jpg" alt="Manikandan Thiyagarajah">
+            </div>
+
+            <div class="about-text">
+
+                <p>
+                    Welcome to my personal portfolio. This is a space where
+                    I share my journey, education, professional experience,
+                    skills, projects and the work that represents me.
+                </p>
+
+                <div class="navigation-buttons">
+
+                    <a href="#education">Education</a>
+
+                    <a href="#experience">Work Experience</a>
+
+                    <a href="#qualifications">Qualifications</a>
+
+                    <a href="#organizations">Organizations</a>
+
+                    <a href="#skills">Skills</a>
+
+                    <a href="#works">Works</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section class="content-section" id="education">
+
+        <h2>Education</h2>
+
+        <p>
+            Your educational journey will be added here.
+        </p>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+
+    <section class="content-section" id="experience">
+
+        <h2>Work Experience</h2>
+
+        <p>
+            Your professional experience will be added here.
+        </p>
+
+    </section>
+
+
+    <!-- QUALIFICATIONS -->
+
+    <section class="content-section" id="qualifications">
+
+        <h2>Qualifications</h2>
+
+        <p>
+            Your qualifications and certifications will be added here.
+        </p>
+
+    </section>
+
+
+    <!-- ORGANIZATIONS -->
+
+    <section class="content-section" id="organizations">
+
+        <h2>Organizations</h2>
+
+        <p>
+            Organizations and company logos will be displayed here.
+        </p>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section class="content-section" id="skills">
+
+        <h2>Skills</h2>
+
+        <p>
+            Your professional and technical skills will be displayed here.
+        </p>
+
+    </section>
+
+
+    <!-- WORKS -->
+
+    <section class="content-section" id="works">
+
+        <h2>Works</h2>
+
+        <p>
+            Your projects and creative work will be displayed here.
+        </p>
+
+    </section>
+
+
+    <!-- FLOATING BUTTONS -->
+
+    <div class="floating-buttons">
+
+        <a href="#home" title="Home">⌂</a>
+
+        <a href="mailto:your-email@example.com" title="Email Me">✉</a>
+
+        <a href="#" title="WhatsApp">☏</a>
+
+        <a href="#about" title="About Me">●</a>
+
+    </div>
 
 </body>
 </html>
